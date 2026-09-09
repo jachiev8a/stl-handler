@@ -18,6 +18,8 @@ RES = (900, 700)
 # Distance as a multiple of the bounding-box diagonal instead; turn this knob to taste.
 FIT = 1.4
 LIGHT, AMBIENT = (0.85, 0.85, 0.85), (0.30, 0.30, 0.30)  # brightness knobs
+BACKGROUND = (38, 40, 46, 255)  # trimesh wants 0-255 RGBA
+TEXT = (215, 215, 220, 255)
 
 
 def describe(mesh, path):
@@ -45,9 +47,10 @@ class Viewer(SceneViewer):
 
     def __init__(self, path=None):
         scene, caption = scene_for(path)
-        super().__init__(scene, caption=caption, resolution=RES, start_loop=False)
+        super().__init__(scene, caption=caption, resolution=RES, start_loop=False,
+                         background=BACKGROUND)
         self.text = pyglet.text.Label(caption, font_name="monospace", font_size=12,
-                                      color=(30, 30, 30, 255), x=12, y=self.height - 24)
+                                      color=TEXT, x=12, y=self.height - 24)
 
     def set_caption(self, text):
         super().set_caption(text)
