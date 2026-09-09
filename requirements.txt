@@ -1,0 +1,5 @@
+trimesh==5.1.0
+pyglet==1.5.31   # trimesh's windowed viewer requires pyglet<2
+numpy==2.5.3
+networkx==3.6.1  # trimesh scene-graph traversal
+scipy==1.18.1    # fast vertex normals for smooth shading
